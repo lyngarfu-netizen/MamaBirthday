@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Patrick Hand', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Lapisan khas untuk gambar latar belakang yang kabur */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Tukar 'nama_gambar.jpg' kepada nama fail gambar anda */
+    background-image: url('Bg2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Di sini tempat tetapkan tahap kabur (blur) */
+    filter: blur(4px); 
+    
+    /* Tolak lapisan ini ke belakang sekali supaya tidak menutup teks/kotak */
+    z-index: -1; 
+    
+    /* (Optional) Tambah sedikit kesan gelap/cerah pada gambar */
+    /* transform: scale(1.05); mencegah tepi gambar kelihatan putih semasa blur */
+}
+/* Buang terus .main-wrapper atau kosongkan, kita guna .wavy-box sebagai kotak utama */
+
+/* Kotak Utama di Tengah Skrin */
+.wavy-box {
+    position: relative;
+    background-color: rgba(225, 90, 90, 0.35); /* Warna maroon gelap */
+    backdrop-filter: blur(8px);
+    width: 850px;
+    height: 480px;
+    max-width: 90%;
+    border-radius: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(221, 143, 143, 0.4);
+}
+/* Teks Arahan */
+.instruction-text {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50px;
+}
+
+/* Susunan Kotak-kotak Hadiah */
+.gifts-container {
+    position: relative;
+    width: 600px;
+    height: 250px;
+    margin-top: 40px;
+}
+
+.gift-item {
+    position: absolute;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.gift-item:hover {
+    transform: scale(1.05); /* Efek membesar sedikit bila letak mouse */
+}
+
+.gift-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2)); /* Bayang 3D realistik bawah kotak */
+}
+
+/* Kedudukan & Saiz Setiap Kotak Hadiah */
+.blue-box {
+    width: 200px;
+    left: 50px;
+    bottom: 20px;
+    z-index: 1;
+}
+
+.white-red-box {
+    width: 200px;
+    left: 190px;
+    top: 5px;
+    z-index: 2;
+}
+
+.white-gold-box {
+    width: 200px;
+    left: 190px;
+    top: 80px;
+    z-index: 3;
+}
+
+.red-box {
+    width: 200px;
+    right: 70px;
+    bottom: 25px;
+    z-index: 2;
+}
+
+/* Tambah ini di hujung file style.css */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Supaya tak kacau klik butang */
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(229, 87, 108, 0.83); /* Warna pink lembut, separa lutsinar */
+    font-size: 50px;
+    animation: rain 5s linear infinite;
+}
+
+@keyframes rain {
+    0% { transform: translateY(-10vh); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+.container { z-index: 1; } /* Pastikan content di depan */
+
+
+
+/* =========================================
+   MEDIA QUERY UNTUK VERSI TELEFON (MOBILE)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    /* Kecilkan saiz kotak tengah agar muat skrin telefon */
+    .wavy-box {
+        width: 100%;
+        height: auto;
+        min-height: 420px;
+        padding: 30px 10px;
+    }
+
+    /* Ubah kedudukan teks arahan supaya tidak terkeluar */
+    .instruction-text {
+        font-size: 16px;
+        top: 20px;
+        text-align: center;
+        width: 90%;
+    }
+
+    /* Pelarasan kontena hadiah untuk skrin kecil */
+    .gifts-container {
+        width: 100%;
+        height: 220px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Kecilkan sedikit saiz kotak hadiah di phone */
+    .blue-box, .white-red-box, .white-gold-box, .red-box {
+        width: 130px;
+    }
+
+    /* Susun semula kedudukan kotak hadiah secara rapat di phone */
+    .blue-box {
+        left: 10px;
+        bottom: 10px;
+    }
+
+    .white-red-box {
+        left: 90px;
+        top: 0px;
+    }
+
+    .white-gold-box {
+        left: 90px;
+        top: 60px;
+    }
+
+    .red-box {
+        right: 10px;
+        bottom: 15px;
+    }
+}

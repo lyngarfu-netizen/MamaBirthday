@@ -1,0 +1,162 @@
+body {
+    /* Kekalkan background corak pink yang sama */
+    background-image: url('Bg2.jpg'); 
+    backdrop-filter: blur(4px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.final-container {
+    position: relative;
+    background-color: rgba(225, 90, 90, 0.35); /* Warna maroon gelap */
+    backdrop-filter: blur(4px);
+    width: 850px;
+    height: 480px;
+    max-width: 90%;
+    border-radius: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(221, 143, 143, 0.4);
+}
+
+/* Style untuk 'Thank You.' */
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Style untuk 'I hope this little website makes you smile.' */
+.sub-text {
+    color: rgb(221, 160, 164);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+/* --- TULISAN BERANGKAI GOOGLE FONTS --- */
+.cursive-text {
+    font-family: 'Great Vibes', cursive;
+    color: rgb(236, 228, 229); /* Warna pink pekat menyala sikit untuk naikkan seri */
+    font-size: 65px; /* Besarkan font berangkai supaya jelas */
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Jarakkan sikit perkataan 'Baby.' kat bawah dia */
+.cursive-text span {
+    font-size: 55px;
+    margin-top: 5px;
+}
+
+/* DAH DIBETULKAN: Buang absolute, guna margin-top biasa supaya dia ikut susunan bawah teks */
+.box-butang {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: rgba(149, 74, 85, 0.512);
+    padding: 10px 0; /* Tebalkan sikit padding biar sedap user phone nak tekan */
+    border-radius: 6px; /* Nampak moden sikit bulat dia */
+    text-align: center;
+    width: 130px; /* Besarkan sikit lebar dari 90px supaya tulisan 'Back Home' tak sempit sangat */
+    display: block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: rgb(227, 23, 74);
+}
+
+#heartContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Supaya tak mengganggu klik tetikus */
+    overflow: hidden;
+    z-index: 999; /* Pastikan ia berada di lapisan paling depan sekali */
+}
+
+/* Gaya Sebiji-biji Hati yang Jatuh */
+.heart {
+    position: absolute;
+    top: -20px;
+    user-select: none;
+    animation: fallLinear linear forwards;
+}
+
+@keyframes fallLinear {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
+/* ==========================================================================
+   Guna @media supaya kalau buka kat Phone, layout tak hancur 
+   ========================================================================== */
+@media (max-width: 768px) {
+    .final-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .sub-text {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .cursive-text {
+        font-size: 55px; /* Kecilkan tulisan berangkai sikit kat phone */
+    }
+
+    .cursive-text span {
+        font-size: 45px;
+    }
+
+    .box-butang {
+        margin-top: 35px; /* Rapatkan jarak ke butang secara selamat */
+    }
+    
+    .btn {
+        font-size: 15px;
+        width: 120px;
+    }
+}

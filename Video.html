@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maroon Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Video.css">
+</head>
+<body>
+
+    <div class="main-card">
+        
+        <div class="top-bow">🎀</div>
+        <div class="washi-tape"></div>
+
+        <!-- Bingkai Polaroid Berisi Video -->
+        <div class="polaroid-frame">
+            <!-- Video Sebenar -->
+            <video id="myVideo" class="polaroid-image" playsinline>
+                <source src="yours.mp4" type="video/mp4">
+                Pelayar anda tidak menyokong video.
+            </video>
+            <div class="mini-heart">❤️</div>
+        </div>
+
+        <div class="charm-left">🍀⚪⭐</div>
+        <div class="charm-right">💖🎀⭐⚪</div>
+
+        <!-- Bahagian Player Muzik -->
+        <div class="music-player-section">
+            <div class="song-info-row">
+                <span class="like-icon">♡</span>
+            </div>
+
+            <!-- Bar Progress Yang Boleh Bergerak -->
+            <div class="progress-bar-container">
+                <div class="progress-line-background" id="progressBarContainer">
+                    <div class="progress-line-fill" id="progressFill"></div>
+                    <div class="progress-thumb" id="progressThumb"></div>
+                </div>
+                <div class="time-stamps">
+                    <span id="currentTime">0:00</span>
+                    <span id="durationTime">0:00</span>
+                </div>
+            </div>
+
+            <!-- Butang Kawalan -->
+            <div class="player-controls">
+                <button class="control-btn">🔀</button>
+                <button class="control-btn" id="prevBtn">⏮</button>
+                <button class="control-btn play-pause-btn" id="playPauseBtn">▶</button>
+                <button class="control-btn" id="nextBtn">⏭</button>
+            </div>
+        </div>
+
+        <div class="tulip-decoration">
+            <span class="tulip-emoji">🌷🌷🌷</span>
+        </div>
+
+        <!-- Ikon Panah Back di Penjuru Bawah Kiri -->
+        <div class="back-arrow">
+            <a href="Gift.html">⏮</a>
+        </div>
+
+    </div>
+
+    <!-- Skrip JavaScript untuk Fungsian Play/Pause & Bar Masa -->
+    <script>
+        const video = document.getElementById('myVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressFill = document.getElementById('progressFill');
+        const progressThumb = document.getElementById('progressThumb');
+        const progressBarContainer = document.getElementById('progressBarContainer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationTimeEl = document.getElementById('durationTime');
+
+        // Fungsi Tukar Format Masa (Saat ke minit:saat)
+        function formatTime(seconds) {
+            let minutes = Math.floor(seconds / 60);
+            let secs = Math.floor(seconds % 60);
+            return minutes + ":" + (secs < 10 ? "0" : "") + secs;
+        }
+
+        // Paparkan durasi penuh bila video siap muat turun
+        video.addEventListener('loadedmetadata', () => {
+            durationTimeEl.textContent = formatTime(video.duration);
+        });
+
+        // Fungsian Tekan Butang Play / Pause
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = "⏸";
+            } else {
+                video.pause();
+                playPauseBtn.textContent = "▶";
+            }
+        });
+
+        // Kemaskini Bar Progress & Masa Semasa Video Berjalan
+        video.addEventListener('timeupdate', () => {
+            let current = video.currentTime;
+            let duration = video.duration;
+            let percentage = (current / duration) * 100;
+
+            progressFill.style.width = percentage + "%";
+            progressThumb.style.left = percentage + "%";
+            currentTimeEl.textContent = formatTime(current);
+        });
+
+        // Apabila video habis, tukar balik butang jadi 'Play' (▶)
+        video.addEventListener('ended', () => {
+            playPauseBtn.textContent = "▶";
+        });
+
+        // Boleh klik pada bar progress untuk lompat ke masa tertentu dalam video
+        progressBarContainer.addEventListener('click', (e) => {
+            let rect = progressBarContainer.getBoundingClientRect();
+            let clickX = e.clientX - rect.left;
+            let width = rect.width;
+            let duration = video.duration;
+
+            video.currentTime = (clickX / width) * duration;
+        });
+    </script>
+</body>
+</html>

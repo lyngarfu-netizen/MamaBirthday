@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Patrick Hand', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Lapisan khas untuk gambar latar belakang yang kabur */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Tukar 'nama_gambar.jpg' kepada nama fail gambar anda */
+    background-image: url('Bg2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Di sini tempat tetapkan tahap kabur (blur) */
+    filter: blur(4px); 
+    
+    /* Tolak lapisan ini ke belakang sekali supaya tidak menutup teks/kotak */
+    z-index: -1; 
+    
+    /* (Optional) Tambah sedikit kesan gelap/cerah pada gambar */
+    /* transform: scale(1.05); mencegah tepi gambar kelihatan putih semasa blur */
+}
+
+/* --- KOTAK KAD UTAMA (MELINTANG / LANDSCAPE PENUH) --- */
+.main-card {
+    position: relative;
+    background-color: rgba(225, 90, 90, 0.35); /* Warna maroon gelap */
+    backdrop-filter: blur(8px);
+    width: 850px;
+    height: 480px;
+    max-width: 90%;
+    border-radius: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(221, 143, 143, 0.4);
+}
+
+/* Reben Mewah Atas Kanan */
+.top-bow {
+    position: absolute;
+    top: -15px;
+    right: 40px;
+    font-size: 50px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    z-index: 10;
+}
+
+/* Pita Pelekat Atas Polaroid */
+.washi-tape {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 110px;
+    height: 24px;
+    background-color: #b56576;
+    opacity: 0.85;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 5;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);
+}
+
+/* --- BINGKAI POLAROID MELINTANG --- */
+.polaroid-frame {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    height: 320px;
+    background-color: #fdfbf7;
+    border-radius: 6px;
+    padding: 12px 12px 35px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.polaroid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #eceaea; /* Warna hitam latar belakang video */
+    border-radius: 3px;
+    outline: none;
+}
+
+.mini-heart {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 18px;
+}
+
+/* --- RANTAI CHARM KIRI & KANAN --- */
+.charm-left {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    font-size: 16px;
+    letter-spacing: -2px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+.charm-right {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    font-size: 16px;
+    letter-spacing: -2px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+/* --- BAHAGIAN PLAYER MUZIK BAWAH --- */
+.music-player-section {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.song-info-row {
+    display: flex;
+    justify-content: flex-end;
+    color: #ffd1d5;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: -5px;
+}
+
+/* Bar Progress */
+.progress-bar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.progress-line-background {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+}
+
+.progress-line-fill {
+    width: 35%;
+    height: 100%;
+    background-color: #ffd1d5;
+    border-radius: 10px;
+}
+
+.progress-thumb {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #ffd1d5;
+    font-weight: 500;
+}
+
+/* Butang Kawalan */
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #ffd1d5;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.15);
+}
+
+.play-pause-btn {
+    width: 48px;
+    height: 48px;
+    background-color: #fdfbf7;
+    color: #6b2026;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+/* Hiasan Tulip Bawah Kiri */
+.tulip-decoration {
+    position: absolute;
+    bottom: 25px;
+    left: 40px;
+    font-size: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Ikon Anak Panah Kembali ke Kiri */
+.back-arrow {
+    position: absolute;
+    bottom: 250px;
+    left: 20px; /* Tukar dari right ke left */
+    z-index: 20;
+}
+
+.back-arrow a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: #fdfbf7; /* Cream */
+    color: #6b2026;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.back-arrow a:hover {
+    transform: scale(1.1);
+}

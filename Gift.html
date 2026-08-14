@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Your Gift</title>
+    <!-- Google Font gaya tulisan tangan -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- Pautan ke fail CSS -->
+    <link rel="stylesheet" href="Gift.css">
+</head>
+<body>
+    <!-- Container untuk hujan hati -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <div class="main-wrapper">
+        <!-- Kotak Biru Beralun di Tengah -->
+        <div class="wavy-box">
+            <!-- Teks Atas -->
+            <div class="instruction-text">
+                CLICK ONE BY ONE TO OPEN YOUR GIFT
+            </div>
+
+            <!-- Kumpulan Kotak Hadiah -->
+            <div class="gifts-container">
+                <!-- Kotak Biru Kiri (Bila klik, simpan arahan auto-play lagu dan pergi ke songs.html) -->
+                <a href="GiftBiru.html" class="gift-item blue-box" onclick="playMusicOnNextPage()">
+                    <img src="Blue.png" alt="Blue Gift">
+                </a>
+
+                <!-- Kotak Putih Belakang (Hijau) -->
+                <a href="Video.html" class="gift-item white-red-box">
+                    <img src="Green.png" alt="Green Gift">
+                </a>
+
+                <!-- Kotak Merah Kanan -->
+                <a href="GiftRed.html" class="gift-item red-box">
+                    <img src="Red.png" alt="Red Gift">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fail JavaScript Luar (script-Gift.js) -->
+    <script src="script-Gift.js"></script>
+
+    <!-- Fungsi untuk menetapkan arahan lagu automatik -->
+    <script>
+        function playMusicOnNextPage() {
+            // Simpan arahan untuk pasang lagu di page seterusnya (songs.html)
+            localStorage.setItem('autoPlayMusic', 'true');
+        }
+    </script>
+
+</body>
+</html>

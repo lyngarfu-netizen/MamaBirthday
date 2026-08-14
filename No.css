@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Kekalkan background corak pink yang sama */
+    background-image: url('Bg2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.question-text {
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cat-image {
+    width: 240px; /* Saiz gambar kucing */
+    height: auto;
+    /* Animasi bounce (melantun) */
+    animation: bounce 2s infinite ease-in-out;
+}
+
+
+
+/* Definisikan pergerakan bounce */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 60px; /* Jarak antara butang YES dan NO */
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #f4d087;
+    color: #3d1c1c;
+    font-family: 'Patrick Hand', cursive, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #c2a15c;
+    transition: all 0.1s ease;
+    
+    /* Tambah 2 baris ni supaya tag <a> rupa dia jadi macam button elok */
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.btn:hover {
+    background-color: #826932;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #c2a15c;
+    color: #ffffff; /* Tukar warna teks jadi putih sikit kalau nak masa hover */
+}
+
+.btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #c2a15c;
+}
+
+/* Responsive untuk Telefon Bimbit */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    .question-text {
+        font-size: 18px; /* Kecilkan sikit saiz tulisan supaya muat skrin telefon */
+        letter-spacing: 0.5px;
+        padding: 0 10px;
+    }
+
+    .cat-image {
+        width: 140px; /* Kurangkan saiz gambar kucing untuk skrin kecil */
+    }
+
+    .button-group {
+        gap: 30px; /* Kurangkan jarak antara butang YES dan NO */
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 6px 24px;
+    }
+}
