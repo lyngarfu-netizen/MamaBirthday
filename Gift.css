@@ -150,45 +150,43 @@ body::before {
    ========================================= */
 @media screen and (max-width: 768px) {
     body {
-        height: 100vh;
-        padding: 15px;
+        height: 100vh !important;
+        padding: 10px !important;
     }
 
-    /* Tetapkan saiz kotak utama agar melintang/muat skrin telefon secara selesa */
     .wavy-box {
-        width: 100%;
-        height: 380px;
-        padding: 20px 10px;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 400px !important;
+        padding: 20px 5px !important;
     }
 
     .instruction-text {
-        font-size: 16px;
-        top: 25px;
-        padding: 0 10px;
-        word-spacing: 2px;
+        font-size: 15px !important;
+        top: 20px !important;
+        position: absolute !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
-    /* Tukar gifts-container jadi Flexbox supaya kotak hadiah tersusun cantik automatik */
     .gifts-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        margin-top: 50px;
-        position: static; /* Buang sifat absolute dalam phone */
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        margin-top: 40px !important;
     }
 
-    /* Reset kedudukan absolute kepada relative supaya flexbox boleh susun */
     .gift-item {
         position: relative !important;
-        top: unset !important;
-        bottom: unset !important;
-        left: unset !important;
-        right: unset !important;
-        width: 110px !important; /* Saiz sesuai untuk paparan telefon */
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100px !important;
     }
 }
