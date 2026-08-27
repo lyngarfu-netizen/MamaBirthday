@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Lapisan khas untuk gambar latar belakang yang kabur */
+/* Latar belakang kabur */
 body::before {
     content: "";
     position: absolute;
@@ -32,19 +32,20 @@ body::before {
     z-index: -1; 
 }
 
-/* --- KOTAK KAD UTAMA (MELINTANG / LANDSCAPE PENUH) --- */
+/* --- KOTAK KAD UTAMA --- */
 .main-card {
     position: relative;
-    background-color: rgba(225, 90, 90, 0.35); /* Warna maroon gelap */
+    background-color: rgba(225, 90, 90, 0.35);
     backdrop-filter: blur(8px);
     width: 850px;
-    height: 480px;
-    max-width: 90%;
+    height: 520px;
+    max-width: 95%;
     border-radius: 30px; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 30px 20px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     border: 1px solid rgba(221, 143, 143, 0.4);
 }
@@ -62,7 +63,7 @@ body::before {
 /* Pita Pelekat Atas Polaroid */
 .washi-tape {
     position: absolute;
-    top: 25px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%) rotate(-1deg);
     width: 110px;
@@ -70,41 +71,47 @@ body::before {
     background-color: #b56576;
     opacity: 0.85;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 5;
+    z-index: 15;
     background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);
 }
 
-/* --- BINGKAI POLAROID --- */
+/* --- BINGKAI POLAROID (DESKTOP) --- */
 .polaroid-frame {
-    position: absolute;
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 420px;
+    position: relative;
+    width: 240px;
     height: 320px;
     background-color: #fdfbf7;
     border-radius: 6px;
     padding: 12px 12px 35px 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 3px;
+    background-color: #000;
 }
 
 .polaroid-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    background-color: #eceaea; /* Warna latar belakang video */
-    border-radius: 3px;
-    outline: none;
+    object-fit: cover; /* Potong tepi video melintang supaya bertukar menegak */
+    display: block;
 }
 
 .mini-heart {
     position: absolute;
-    bottom: 10px;
-    right: 15px;
+    bottom: 8px;
+    right: 12px;
     font-size: 18px;
 }
 
-/* --- RANTAI CHARM KIRI & KANAN --- */
+/* --- RANTAI CHARM --- */
 .charm-left {
     position: absolute;
     top: 50px;
@@ -123,14 +130,14 @@ body::before {
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
 }
 
-/* --- BAHAGIAN PLAYER MUZIK BAWAH --- */
+/* --- BAHAGIAN PLAYER MUZIK --- */
 .music-player-section {
     width: 100%;
-    margin-top: auto;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 0 30px 20px 30px;
+    z-index: 5;
 }
 
 .song-info-row {
@@ -142,12 +149,12 @@ body::before {
     margin-bottom: -5px;
 }
 
-/* Bar Progress */
 .progress-bar-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    cursor: pointer;
 }
 
 .progress-line-background {
@@ -159,7 +166,7 @@ body::before {
 }
 
 .progress-line-fill {
-    width: 35%;
+    width: 0%;
     height: 100%;
     background-color: #ffd1d5;
     border-radius: 10px;
@@ -168,7 +175,7 @@ body::before {
 .progress-thumb {
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 0%;
     transform: translate(-50%, -50%);
     width: 14px;
     height: 14px;
@@ -185,7 +192,6 @@ body::before {
     font-weight: 500;
 }
 
-/* Butang Kawalan */
 .player-controls {
     display: flex;
     justify-content: center;
@@ -219,7 +225,6 @@ body::before {
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
 }
 
-/* Hiasan Tulip Bawah Kiri */
 .tulip-decoration {
     position: absolute;
     bottom: 25px;
@@ -228,11 +233,10 @@ body::before {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
-/* Ikon Anak Panah Kembali ke Kiri */
 .back-arrow {
     position: absolute;
-    bottom: 250px;
-    left: 20px;
+    bottom: 25px;
+    left: 15px;
     z-index: 20;
 }
 
@@ -242,17 +246,13 @@ body::before {
     align-items: center;
     width: 32px;
     height: 32px;
-    background-color: #fdfbf7; /* Cream */
+    background-color: #fdfbf7;
     color: #6b2026;
     border-radius: 50%;
     text-decoration: none;
     font-size: 16px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
-}
-
-.back-arrow a:hover {
-    transform: scale(1.1);
 }
 
 /* ==========================================================================
@@ -265,14 +265,14 @@ body::before {
 
     .main-card {
         width: 100%;
-        max-width: 340px; /* Lebar kad muat skrin phone */
-        height: 580px; /* Tinggikan kad untuk muat frame menegak + music player */
-        padding: 15px;
+        max-width: 330px;
+        height: 560px;
+        padding: 20px 15px;
         border-radius: 25px;
     }
 
     .top-bow {
-        font-size: 38px;
+        font-size: 36px;
         right: 15px;
         top: -10px;
     }
@@ -280,36 +280,36 @@ body::before {
     .washi-tape {
         width: 80px;
         height: 18px;
-        top: 20px;
+        top: -9px;
     }
 
-    /* POLAROID BERTUKAR MENEGAK & KECIL */
+    /* FRAME POLAROID KECIK & MENEGAK DI PHONE */
     .polaroid-frame {
-        width: 180px;  /* Lebar kecil */
-        height: 270px; /* Tinggi menegak (portrait) */
-        top: 30px;
-        padding: 8px 8px 30px 8px; /* Ruang putih polaroid diselaraskan */
+        width: 170px;  /* Kecil & Menegak */
+        height: 250px; 
+        padding: 8px 8px 28px 8px;
+        margin-top: 10px;
     }
 
     .charm-left, .charm-right {
-        display: none; /* Sembunyikan charm di phone supaya tak berserabut */
+        display: none; /* Padamkan charm di skrin phone */
     }
 
     .music-player-section {
-        padding: 0 10px 15px 10px;
+        padding: 0;
         gap: 5px;
     }
 
     .tulip-decoration {
         bottom: 15px;
         left: 15px;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .back-arrow {
         top: 15px;
         left: 15px;
-        bottom: auto; /* Alihkan panah ke atas kiri di phone supaya tak tutup video */
+        bottom: auto; /* Pindah anak panah ke atas kiri di phone */
     }
 
     .play-pause-btn {
