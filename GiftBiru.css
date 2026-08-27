@@ -235,53 +235,53 @@ body::before {
     }
 
     .header-title h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .header-title h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    /* Kecilkan piring hitam supaya muat di tengah */
+    /* Piring Hitam */
+    .vinyl-section {
+        height: 320px;
+    }
+
     .vinyl-record {
-        width: 200px;
-        height: 200px;
+        width: 210px;
+        height: 210px;
     }
 
     .vinyl-grooves {
-        width: 160px;
-        height: 160px;
+        width: 170px;
+        height: 170px;
     }
 
     .vinyl-label {
-        width: 75px;
-        height: 75px;
+        width: 70px;
+        height: 70px;
     }
 
     .song-title-label {
-        font-size: 9px;
+        font-size: 8px;
     }
 
-    .vinyl-section {
-        height: 300px;
-    }
-
-    /* Kecilkan polaroid & susun semula posisinya agar tidak terkeluar dari skrin */
+    /* KECILKAN FRAME POLAROID & GAMBAR */
     .polaroid-item {
-        width: 45px;
-        padding: 5px 5px 15px 5px;
+        width: 65px; /* Lebar frame kecil */
+        padding: 4px 4px 12px 4px; /* Padding frame nipis */
     }
 
     .polaroid-item img {
-        height: 60px;
+        height: 50px; /* Tinggi gambar kecil */
     }
 
-    /* Penyesuaian lokasi polaroid untuk skrin kecil */
-    .polaroid-item.p1 { top: 0px; left: 20px; }
-    .polaroid-item.p2 { top: 110px; left: 5px; }
-    .polaroid-item.p3 { top: 0px; right: 20px; }
-    .polaroid-item.p4 { bottom: 10px; left: 30px; }
-    .polaroid-item.p5 { bottom: 10px; right: 30px; }
+    /* ATUR POSISI AGAR TAK BERTINDIH SANGAT */
+    .polaroid-item.p1 { top: 5px; left: 15px; transform: rotate(-6deg); }
+    .polaroid-item.p2 { top: 100px; left: 0px; transform: rotate(-14deg); }
+    .polaroid-item.p3 { top: 5px; right: 15px; transform: rotate(8deg); }
+    .polaroid-item.p4 { bottom: 15px; left: 20px; transform: rotate(12deg); }
+    .polaroid-item.p5 { bottom: 15px; right: 20px; transform: rotate(-10deg); }
 
     .back-arrow {
         bottom: 10px;
