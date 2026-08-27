@@ -285,10 +285,15 @@ body::before {
 
     /* FRAME POLAROID KECIK & MENEGAK DI PHONE */
 .polaroid-frame {
-    width: 130px;  /* Dikecilkan lagi */
-    height: 190px; 
-    padding: 6px 6px 20px 6px;
-    margin-top: 5px;
+
+width: 170px; /* Kecil & Menegak */
+
+height: 250px;
+
+padding: 8px 8px 28px 8px;
+
+margin-top: 10px;
+
 }
 
     .charm-left, .charm-right {
