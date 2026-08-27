@@ -454,3 +454,69 @@ body::before {
     100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 
 }
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .songs-container {
+        padding: 20px 10px 40px 10px;
+        height: auto;
+    }
+
+    .header-title h1 {
+        font-size: 22px;
+    }
+
+    .header-title h2 {
+        font-size: 18px;
+    }
+
+    /* Piring Hitam */
+    .vinyl-section {
+        height: 300px;
+    }
+
+    .vinyl-record {
+        width: 200px;
+        height: 200px;
+    }
+
+    .vinyl-grooves {
+        width: 160px;
+        height: 160px;
+    }
+
+    .vinyl-label {
+        width: 65px;
+        height: 65px;
+    }
+
+    .song-title-label {
+        font-size: 8px;
+    }
+
+    /* POLAROID EXTRA KECIL */
+    .polaroid-item {
+        width: 50px; /* Frame lagi kecil */
+        padding: 3px 3px 10px 3px; /* Border putih lagi nipis */
+    }
+
+    .polaroid-item img {
+        height: 40px; /* Gambar dikecilkan ikut frame */
+    }
+
+    /* POSISI DITOLAK KE TEPI SUPAYA AKAN NAMPAK PIRING HITAM */
+    .polaroid-item.p1 { top: 10px; left: 15px; transform: rotate(-6deg); }
+    .polaroid-item.p2 { top: 110px; left: 5px; transform: rotate(-14deg); }
+    .polaroid-item.p3 { top: 10px; right: 15px; transform: rotate(8deg); }
+    .polaroid-item.p4 { bottom: 20px; left: 15px; transform: rotate(12deg); }
+    .polaroid-item.p5 { bottom: 20px; right: 15px; transform: rotate(-10deg); }
+
+    .back-arrow {
+        bottom: 10px;
+        left: 10px;
+    }
+}
