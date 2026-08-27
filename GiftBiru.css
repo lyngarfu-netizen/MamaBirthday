@@ -268,7 +268,7 @@ body::before {
 
     /* Kecilkan polaroid & susun semula posisinya agar tidak terkeluar dari skrin */
     .polaroid-item {
-        width: 75px;
+        width: 45px;
         padding: 5px 5px 15px 5px;
     }
 
