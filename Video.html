@@ -16,11 +16,12 @@
 
         <!-- Bingkai Polaroid Berisi Video -->
         <div class="polaroid-frame">
-            <!-- Video Sebenar -->
-            <video id="myVideo" class="polaroid-image" playsinline>
-                <source src="yours.mp4" type="video/mp4">
-                Pelayar anda tidak menyokong video.
-            </video>
+            <div class="video-container">
+                <video id="myVideo" class="polaroid-image" playsinline>
+                    <source src="yours.mp4" type="video/mp4">
+                    Pelayar anda tidak menyokong video.
+                </video>
+            </div>
             <div class="mini-heart">❤️</div>
         </div>
 
@@ -58,14 +59,14 @@
             <span class="tulip-emoji">🌷🌷🌷</span>
         </div>
 
-        <!-- Ikon Panah Back di Penjuru Bawah Kiri -->
+        <!-- Ikon Panah Back -->
         <div class="back-arrow">
             <a href="Gift.html">⏮</a>
         </div>
 
     </div>
 
-    <!-- Skrip JavaScript untuk Fungsian Play/Pause & Bar Masa -->
+    <!-- Skrip JavaScript kekal sama -->
     <script>
         const video = document.getElementById('myVideo');
         const playPauseBtn = document.getElementById('playPauseBtn');
@@ -75,19 +76,16 @@
         const currentTimeEl = document.getElementById('currentTime');
         const durationTimeEl = document.getElementById('durationTime');
 
-        // Fungsi Tukar Format Masa (Saat ke minit:saat)
         function formatTime(seconds) {
             let minutes = Math.floor(seconds / 60);
             let secs = Math.floor(seconds % 60);
             return minutes + ":" + (secs < 10 ? "0" : "") + secs;
         }
 
-        // Paparkan durasi penuh bila video siap muat turun
         video.addEventListener('loadedmetadata', () => {
             durationTimeEl.textContent = formatTime(video.duration);
         });
 
-        // Fungsian Tekan Butang Play / Pause
         playPauseBtn.addEventListener('click', () => {
             if (video.paused) {
                 video.play();
@@ -98,7 +96,6 @@
             }
         });
 
-        // Kemaskini Bar Progress & Masa Semasa Video Berjalan
         video.addEventListener('timeupdate', () => {
             let current = video.currentTime;
             let duration = video.duration;
@@ -109,12 +106,10 @@
             currentTimeEl.textContent = formatTime(current);
         });
 
-        // Apabila video habis, tukar balik butang jadi 'Play' (▶)
         video.addEventListener('ended', () => {
             playPauseBtn.textContent = "▶";
         });
 
-        // Boleh klik pada bar progress untuk lompat ke masa tertentu dalam video
         progressBarContainer.addEventListener('click', (e) => {
             let rect = progressBarContainer.getBoundingClientRect();
             let clickX = e.clientX - rect.left;
