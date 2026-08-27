@@ -24,21 +24,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    
-    /* Tukar 'nama_gambar.jpg' kepada nama fail gambar anda */
     background-image: url('Bg2.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* Di sini tempat tetapkan tahap kabur (blur) */
     filter: blur(4px); 
-    
-    /* Tolak lapisan ini ke belakang sekali supaya tidak menutup teks/kotak */
     z-index: -1; 
-    
-    /* (Optional) Tambah sedikit kesan gelap/cerah pada gambar */
-    /* transform: scale(1.05); mencegah tepi gambar kelihatan putih semasa blur */
 }
 
 /* --- KOTAK KAD UTAMA (MELINTANG / LANDSCAPE PENUH) --- */
@@ -83,7 +74,7 @@ body::before {
     background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);
 }
 
-/* --- BINGKAI POLAROID MELINTANG --- */
+/* --- BINGKAI POLAROID --- */
 .polaroid-frame {
     position: absolute;
     top: 35px;
@@ -101,7 +92,7 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: #eceaea; /* Warna hitam latar belakang video */
+    background-color: #eceaea; /* Warna latar belakang video */
     border-radius: 3px;
     outline: none;
 }
@@ -139,6 +130,7 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 0 30px 20px 30px;
 }
 
 .song-info-row {
@@ -240,7 +232,7 @@ body::before {
 .back-arrow {
     position: absolute;
     bottom: 250px;
-    left: 20px; /* Tukar dari right ke left */
+    left: 20px;
     z-index: 20;
 }
 
@@ -261,4 +253,76 @@ body::before {
 
 .back-arrow a:hover {
     transform: scale(1.1);
+}
+
+/* ==========================================================================
+   PENYESUAIAN KHAS TELEFON (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .main-card {
+        width: 100%;
+        max-width: 340px; /* Lebar kad muat skrin phone */
+        height: 580px; /* Tinggikan kad untuk muat frame menegak + music player */
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .top-bow {
+        font-size: 38px;
+        right: 15px;
+        top: -10px;
+    }
+
+    .washi-tape {
+        width: 80px;
+        height: 18px;
+        top: 20px;
+    }
+
+    /* POLAROID BERTUKAR MENEGAK & KECIL */
+    .polaroid-frame {
+        width: 180px;  /* Lebar kecil */
+        height: 270px; /* Tinggi menegak (portrait) */
+        top: 30px;
+        padding: 8px 8px 30px 8px; /* Ruang putih polaroid diselaraskan */
+    }
+
+    .charm-left, .charm-right {
+        display: none; /* Sembunyikan charm di phone supaya tak berserabut */
+    }
+
+    .music-player-section {
+        padding: 0 10px 15px 10px;
+        gap: 5px;
+    }
+
+    .tulip-decoration {
+        bottom: 15px;
+        left: 15px;
+        font-size: 22px;
+    }
+
+    .back-arrow {
+        top: 15px;
+        left: 15px;
+        bottom: auto; /* Alihkan panah ke atas kiri di phone supaya tak tutup video */
+    }
+
+    .play-pause-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .control-btn {
+        font-size: 18px;
+    }
+
+    .player-controls {
+        gap: 15px;
+    }
 }
