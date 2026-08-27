@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     /* Kekalkan background corak pink yang sama */
     background-image: url('Bg2.jpg'); 
@@ -43,6 +49,30 @@ h1 {
     text-align: center;
 }
 
+/* ==========================================
+   FRAME VIDEO MENEGAK (DESKTOP / STANDARD)
+   ========================================== */
+.video-container {
+    width: 200px; /* Lebar frame video */
+    height: 300px; /* Tinggi frame (menegak) */
+    margin: 10px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Potong tepi video supaya muat menegak */
+    display: block;
+}
+
 .scroll-box {
     width: 100%;
     max-height: 50vh;
@@ -82,7 +112,6 @@ h1 {
     transition: transform 0.2s ease, background-color 0.2s;
 }
 
-/* Tambah ini di hujung file style.css */
 /* Bekas Hujan Hati */
 #heartContainer {
     position: fixed;
@@ -115,7 +144,7 @@ h1 {
 }
 
 /* ==========================================================================
-   Guna @media supaya kalau buka kat Phone, layout tak hancur 
+   PENYESUAIAN KHAS TELEFON (RESPONSIVE)
    ========================================================================== */
 @media (max-width: 768px) {
     .letter-container {
@@ -125,25 +154,33 @@ h1 {
     }
 
     .envelope-emoji {
-        font-size: 40px; /* Kecilkan emoji sampul surat sikit */
+        font-size: 35px; /* Kecilkan emoji sampul surat sikit */
         margin-bottom: 5px;
     }
 
     h1 {
-        font-size: 24px; /* Kecilkan tajuk "Dear Baby" sikit */
-        margin-bottom: 15px;
+        font-size: 22px; /* Kecilkan tajuk sikit */
+        margin-bottom: 10px;
+    }
+
+    /* FRAME VIDEO KECIK & MENEGAK UNTUK PHONE */
+    .video-container {
+        width: 150px; /* Lebar dikecilkan */
+        height: 240px; /* Tinggi menegak yang seimbang */
+        margin: 5px auto 15px auto;
+        border-radius: 12px;
     }
 
     .scroll-box {
-        max-height: 48vh; /* Laraskan tinggi kotak teks supaya muat skrin pendek */
-        font-size: 15px; /* Kecilkan saiz tulisan menaip sikit biar sedap membaca dekat skrin phone */
+        max-height: 40vh; /* Laraskan tinggi kotak teks supaya muat bersama video */
+        font-size: 14px; /* Saiz tulisan lebih comel untuk skrin phone */
         line-height: 1.5;
     }
 
     .btn-next {
-        font-size: 16px; /* Kecilkan saiz tulisan butang */
+        font-size: 15px; /* Kecilkan saiz tulisan butang */
         padding: 10px 0; /* Nipiskan butang sikit */
-        width: 160px; /* Pendekkan lebar butang */
+        width: 150px; /* Pendekkan lebar butang */
         margin-bottom: 5px;
     }
 }
