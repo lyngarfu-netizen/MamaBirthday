@@ -258,6 +258,9 @@ body::before {
 /* ==========================================================================
    PENYESUAIAN KHAS TELEFON (RESPONSIVE)
    ========================================================================== */
+/* ==========================================================================
+   PENYESUAIAN KHAS TELEFON (RESPONSIVE - SAIZ BESAR)
+   ========================================================================== */
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -265,44 +268,43 @@ body::before {
 
     .main-card {
         width: 100%;
-        max-width: 330px;
-        height: 560px;
-        padding: 20px 15px;
+        max-width: 360px; /* Lebarkan sedikit kad utama */
+        height: auto;      /* Biar tinggi kad ikut isi kandungan secara automatik */
+        min-height: 620px;
+        padding: 25px 15px 20px 15px;
         border-radius: 25px;
     }
 
     .top-bow {
-        font-size: 36px;
+        font-size: 38px;
         right: 15px;
         top: -10px;
     }
 
     .washi-tape {
-        width: 80px;
-        height: 18px;
-        top: -9px;
+        width: 90px;
+        height: 20px;
+        top: -10px;
     }
 
-    /* FRAME POLAROID KECIK & MENEGAK DI PHONE */
-.polaroid-frame {
-
-width: 170px; /* Kecil & Menegak */
-
-height: 250px;
-
-padding: 8px 8px 28px 8px;
-
-margin-top: 10px;
-
-}
+    /* --- POLAROID DIBESARKAN DI SINI --- */
+    .polaroid-frame {
+        width: 260px;   /* Dibesarkan daripada 170px ke 260px */
+        height: 340px;  /* Dibesarkan daripada 250px ke 340px */
+        padding: 10px 10px 32px 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 
     .charm-left, .charm-right {
-        display: none; /* Padamkan charm di skrin phone */
+        display: none;
     }
 
     .music-player-section {
+        width: 100%;
+        max-width: 280px; /* Samakan lebar player dengan frame polaroid */
         padding: 0;
-        gap: 5px;
+        gap: 6px;
     }
 
     .tulip-decoration {
@@ -314,12 +316,12 @@ margin-top: 10px;
     .back-arrow {
         top: 15px;
         left: 15px;
-        bottom: auto; /* Pindah anak panah ke atas kiri di phone */
+        bottom: auto;
     }
 
     .play-pause-btn {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         font-size: 16px;
     }
 
@@ -328,6 +330,6 @@ margin-top: 10px;
     }
 
     .player-controls {
-        gap: 15px;
+        gap: 18px;
     }
 }
